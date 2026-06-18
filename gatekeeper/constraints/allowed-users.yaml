@@ -1,5 +1,5 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sAllowedUsers
+kind: K8sPSPAllowedUsers
 metadata:
   name: container-allowed-users
 spec:
@@ -9,4 +9,7 @@ spec:
         kinds: ["Pod"]
     namespaces:
       - demo
-      - payments     
+      - payments
+  parameters:
+    runAsUser:
+      rule: MustRunAsNonRoot # Buộc container phải chạy với user thường, không dùng root (UID 0)

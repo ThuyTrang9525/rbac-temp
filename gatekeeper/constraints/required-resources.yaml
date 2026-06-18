@@ -1,5 +1,5 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sRequiredResources
+kind: K8sContainerLimits
 metadata:
   name: container-required-resources
 spec:
@@ -9,8 +9,9 @@ spec:
         kinds: ["Pod"]
     namespaces:
       - demo
-      - payments      
+      - payments
   parameters:
-    limits:
+    # Bắt buộc tất cả các container bên trong Pod phải khai báo cấu hình limits
+    required_limits:
       - cpu
       - memory
