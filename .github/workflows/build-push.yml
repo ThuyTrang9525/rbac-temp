@@ -68,7 +68,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: '${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.semver.outputs.version }}'
+          image-ref: 'ghcr.io/thuytrang9525/w10-api:${{ steps.semver.outputs.version }}'
           format: 'table'
           exit-code: '1' # Fail pipeline nếu phát hiện CVE HIGH/CRITICAL
           ignore-unfixed: true
