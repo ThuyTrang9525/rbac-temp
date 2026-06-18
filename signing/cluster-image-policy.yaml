@@ -1,0 +1,14 @@
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: require-signed-images
+spec:
+  images:
+  - glob: "ghcr.io/thuytrang9525/**"
+  authorities:
+  - key:
+      data: |
+        -----BEGIN PUBLIC KEY-----
+        MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE31FNxvwy0gjYlSltIgzilW6RuFGb
+        DAJovnEi2o8oFd74VT/4DfRtdBVKChmigBiHqlsb6d2hpbL6Khnz47xRLQ==
+        -----END PUBLIC KEY-----

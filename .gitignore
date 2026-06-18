@@ -13,3 +13,4 @@ k8s-monitoring/alertmanager-config.yaml
 
 cosign.key
 cosign.pub
+cosign.exe
